@@ -17,32 +17,26 @@ void change(){
     for(y = 1; y <= n; y++){
         for(x = 1; x <= m; x++){
             if(arr[x][y] == 1){
-                if(arr[x+1][y] == 0)
-                    arr[x+1][y] = 2;
+                if(arr[x+1][y] == 0) arr[x+1][y] = 2;
                 
-                if(arr[x-1][y] == 0)
-                    arr[x-1][y] = 2;
+                if(arr[x-1][y] == 0) arr[x-1][y] = 2;
                 
-                if(arr[x][y+1] == 0)
-                    arr[x][y+1] = 2;
+                if(arr[x][y+1] == 0) arr[x][y+1] = 2;
                 
-                if(arr[x][y-1] == 0)
-                    arr[x][y-1] = 2;
+                if(arr[x][y-1] == 0) arr[x][y-1] = 2;
             }
         }
     }
     
     for(y = 1; y <= n; y++){
         for(x = 1; x <= m; x++){
-            if(arr[x][y] == 2)
-                arr[x][y] = 1;
+            if(arr[x][y] == 2) arr[x][y] = 1;
         }
     }
     
     for(y = 1; y <= n; y++){
         for(x = 1; x <= m; x++){
-            if(arr[x][y] == 0 && a < 10000)
-                change();
+            if(arr[x][y] == 0 && a < 10000) change();
         }
     }
 }
@@ -59,15 +53,12 @@ int main(){
     //배열 확인 하고 변화 해야할 토마토 있으면 시작
     for(y = 1; y <= n; y++){
         for(x = 1; x <= m; x++){
-            if(arr[x][y] == 0)
-                change();
+            if(arr[x][y] == 0) change();
         }
     }
     //몇 일 거리는지 확인
-    if(a < 10000)
-        printf("%d\n", a);
-    else
-        printf("-1\n");
+    if(a < 10000) printf("%d\n", a);
+    else printf("-1\n");
 
     return 0;
 }
