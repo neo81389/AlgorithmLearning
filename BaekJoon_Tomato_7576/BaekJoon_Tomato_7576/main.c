@@ -7,30 +7,22 @@
 //
 #include <stdio.h>
 
-int m, n = 0;
-int x, y;
-int a = 0;
-int arr[1001][1001];
+int m, n, x ,y, a = 0;
+int arr[1000][1000];
 
 void change(){
     a++;
     for(y = 1; y <= n; y++){
         for(x = 1; x <= m; x++){
-            if(arr[x][y] == 1){
-                if(arr[x+1][y] == 0) arr[x+1][y] = 2;
+            if(arr[x][y] == a){
+                if(arr[x+1][y] == 0) arr[x+1][y] = a+1;
                 
-                if(arr[x-1][y] == 0) arr[x-1][y] = 2;
+                if(arr[x-1][y] == 0) arr[x-1][y] = a+1;
                 
-                if(arr[x][y+1] == 0) arr[x][y+1] = 2;
+                if(arr[x][y+1] == 0) arr[x][y+1] = a+1;
                 
-                if(arr[x][y-1] == 0) arr[x][y-1] = 2;
+                if(arr[x][y-1] == 0) arr[x][y-1] = a+1;
             }
-        }
-    }
-    
-    for(y = 1; y <= n; y++){
-        for(x = 1; x <= m; x++){
-            if(arr[x][y] == 2) arr[x][y] = 1;
         }
     }
     
