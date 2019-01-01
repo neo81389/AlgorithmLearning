@@ -10,7 +10,7 @@
 #include <stdio.h>
 
 int m, n, x ,y, a = 0;
-int arr[1000][1000];
+int arr[1002][1000] ={-1, };
 
 void change(){
     a++;
@@ -30,7 +30,7 @@ void change(){
     
     for(y = 1; y <= n; y++){
         for(x = 1; x <= m; x++){
-            if(arr[x][y] == 0 && a < 10000) change();
+            if(arr[x][y] == 0) change();
         }
     }
 }
@@ -44,14 +44,22 @@ int main(){
             scanf("%d", &arr[x][y]); // 배열 정보 받기
         }
     }
+    
+    for(y = 1; y <= n; y++){
+        for(x = 1; x <= m; x++){
+            if(arr[x][y] == 0 && arr[x+1][y] == -1 && arr[x-1][y] == -1 && arr[x][y+1] == -1 && arr[x][y-1] == -1)
+                a = -2;
+        }
+    }
+
     //배열 확인 하고 변화 해야할 토마토 있으면 시작
     for(y = 1; y <= n; y++){
         for(x = 1; x <= m; x++){
-            if(arr[x][y] == 0) change();
+            if(arr[x][y] == 0 && a != -2) change();
         }
     }
     //몇 일 거리는지 확인
-    if(a < 10000) printf("%d\n", a);
+    if(a != -2) printf("%d\n", a);
     else printf("-1\n");
 
     return 0;
