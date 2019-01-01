@@ -7,10 +7,11 @@
 //
 //problem I've solved is on https://www.acmicpc.net/problem/7578
 //How I solved is described on https://blog.naver.com/robo813/221431533471
+//
 #include <stdio.h>
 
 int m, n, x ,y, a = 0;
-int arr[1002][1000] ={-1, };
+int arr[1002][1002] ={ -1, };
 
 void change(){
     a++;
@@ -59,8 +60,8 @@ int main(){
         }
     }
     //몇 일 거리는지 확인
-    if(a != -2) printf("%d\n", a);
-    else printf("-1\n");
+    if(a != -2) printf("%d", a);
+    else printf("-1");
 
     return 0;
 }
