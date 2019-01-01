@@ -5,6 +5,8 @@
 //  Created by Joonhee Lee on 30/12/2018.
 //  Copyright © 2018 Joonhee Lee. All rights reserved.
 //
+//problem I've solved is on https://www.acmicpc.net/problem/7578
+//How I solved is described on https://blog.naver.com/robo813/221431533471
 #include <stdio.h>
 
 int m, n, x ,y, a = 0;
