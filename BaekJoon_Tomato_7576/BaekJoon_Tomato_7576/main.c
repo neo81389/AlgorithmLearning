@@ -11,7 +11,7 @@
 #include <stdio.h>
 
 int m, n, x ,y, a = 0;
-int arr[1002][1002] ={ -1, };
+int arr[1002][1002];
 
 void change(){
     a++;
@@ -37,6 +37,12 @@ void change(){
 }
 
 int main(){
+    
+    for(y = 0; y <= 1001; y++){
+        for(x = 0; x <= 1001; x++){
+            arr[x][y] = -1;
+        }
+    }
     printf("start\n");
     scanf("%d %d", &m, &n); // 배열 크기 받기
     
@@ -60,8 +66,8 @@ int main(){
         }
     }
     //몇 일 거리는지 확인
-    if(a != -2) printf("%d", a);
-    else printf("-1");
+    if(a != -2) printf("%d\n", a);
+    else printf("-1\n");
 
     return 0;
 }
