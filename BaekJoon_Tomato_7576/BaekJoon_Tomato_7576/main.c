@@ -43,12 +43,16 @@ int main(){
             arr[x][y] = -1;
         }
     }
+    
+    printf("%d", arr[1][1]);
     printf("start\n");
     scanf("%d %d", &m, &n); // 배열 크기 받기
     
     for(y = 1; y <= n; y++){
         for(x = 1; x <= m; x++){
             scanf("%d", &arr[x][y]); // 배열 정보 받기
+            if(arr[x][y] == -1)
+                a--;
         }
     }
     
@@ -62,11 +66,15 @@ int main(){
     //배열 확인 하고 변화 해야할 토마토 있으면 시작
     for(y = 1; y <= n; y++){
         for(x = 1; x <= m; x++){
-            if(arr[x][y] == 0 && a != -2) change();
+            if(arr[x][y] == 0 && a != -2 && a != -m * n) {
+                a = 0;
+                change();
+                
+            }
         }
     }
     //몇 일 거리는지 확인
-    if(a != -2) printf("%d\n", a);
+    if(a > 0) printf("%d\n", a);
     else printf("-1\n");
 
     return 0;
