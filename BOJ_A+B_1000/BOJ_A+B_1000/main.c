@@ -6,4 +6,4 @@
 //  Copyright © 2019 Joonhee Lee. All rights reserved.
 //
 #include <stdio.h>
-int a,b=0;int main(){for(int i=0;i<2;i++){scanf("%d",&a);b=b+a;}printf("%d",b);return 0;}
+int a,b,i=0;int main(){while(i<2){scanf("%d",&a);b=b+a;i++;}printf("%d",b);return 0;}
