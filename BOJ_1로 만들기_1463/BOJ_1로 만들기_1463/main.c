@@ -22,9 +22,38 @@
  */
 
 #include <stdio.h>
-
+//printf들은 디버깅을 위해서 설치함;
+int a, i;
 int main() {
     printf("start\n");
+    scanf("%d", &a);
     
+    if(a != 2){
+        while(a % 3 != 0){
+            a = a - 1;
+            i++;
+            printf("%d\n", a);
+        }
+        
+        printf("\n");
+        
+        while(a % 3 == 0){
+            a = a /3;
+            i++;
+            printf("%d\n", a);
+        }
+        
+        printf("\n");
+        
+    }
+    while(a > 1){
+        a = a / 2;
+        i++;
+        printf("%d\n", a);
+    }
+    
+    printf("\n");
+    
+    printf("%d", i);
     return 0;
 }
