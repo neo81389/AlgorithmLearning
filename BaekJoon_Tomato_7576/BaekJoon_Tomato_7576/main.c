@@ -1,81 +1,97 @@
 //
 //  main.c
-//  BaekJoon_Tomato_7576
+//  untitled
 //
-//  Created by Joonhee Lee on 30/12/2018.
-//  Copyright © 2018 Joonhee Lee. All rights reserved.
+//  Created by Joonhee Lee on 05/01/2019.
+//  Copyright © 2019 Joonhee Lee. All rights reserved.
 //
-//problem I've solved is on https://www.acmicpc.net/problem/7578
-//How I solved is described on https://blog.naver.com/robo813/221431533471
-//
+
 #include <stdio.h>
-
-int m, n, x ,y, a = 0;
+int x, y, m, n, a, t, b = 0;
 int arr[1002][1002];
+int bfs_x[1000002];
+int bfs_y[1000002];
 
-void change(){
-    a++;
-    for(y = 1; y <= n; y++){
-        for(x = 1; x <= m; x++){
-            if(arr[x][y] == a){
-                if(arr[x+1][y] == 0) arr[x+1][y] = a+1;
-                
-                if(arr[x-1][y] == 0) arr[x-1][y] = a+1;
-                
-                if(arr[x][y+1] == 0) arr[x][y+1] = a+1;
-                
-                if(arr[x][y-1] == 0) arr[x][y-1] = a+1;
-            }
-        }
-    }
-    
-    for(y = 1; y <= n; y++){
-        for(x = 1; x <= m; x++){
-            if(arr[x][y] == 0) change();
-        }
-    }
-}
-
-int main(){
-    
-    for(y = 0; y <= 1001; y++){
-        for(x = 0; x <= 1001; x++){
+int main() {
+    for(x = 0; x <= 1001; x++){
+        for(y = 0; y <= 1002; y++)
             arr[x][y] = -1;
-        }
     }
     
-    printf("%d", arr[1][1]);
     printf("start\n");
-    scanf("%d %d", &m, &n); // 배열 크기 받기
     
-    for(y = 1; y <= n; y++){
-        for(x = 1; x <= m; x++){
-            scanf("%d", &arr[x][y]); // 배열 정보 받기
+    //receiving primary information
+    scanf("%d %d", &m, &n);
+    
+    for(x = 1; x <= m; x++){
+        for(y = 1; y <= n; y++){
+            scanf("%d", &arr[x][y]);
             if(arr[x][y] == -1)
                 a--;
         }
     }
     
-    for(y = 1; y <= n; y++){
-        for(x = 1; x <= m; x++){
-            if(arr[x][y] == 0 && arr[x+1][y] == -1 && arr[x-1][y] == -1 && arr[x][y+1] == -1 && arr[x][y-1] == -1)
-                a = -2;
+    //searching for ripen tomato
+    printf("searching for ripen tomato\n");
+    for(x = 1; x <= m; x++){
+        for(y = 1; y <= n; y++){
+            if(arr[x][y] == 1){
+                bfs_x[a] = x;
+                bfs_y[a] = y;
+                a++;
+            }
+            
+            if(arr[x][y] == 0){
+                if(arr[x+1][y] == -1 && arr[x-1][y] == -1 && arr[x][y+1] == -1 && arr[x][y-1] == -1)
+                    a = -1;
+            }
+            
+            printf("%d ", a);
         }
+        printf("\n");
     }
-
-    //배열 확인 하고 변화 해야할 토마토 있으면 시작
-    for(y = 1; y <= n; y++){
-        for(x = 1; x <= m; x++){
-            if(arr[x][y] == 0 && a != -2 && a != -m * n) {
-                a = 0;
-                change();
-                
+    
+    printf("bfs start\n");
+    if(a != -1 && a != -m * n){
+        
+        for(int t = 0; t < a; t++){
+            
+            for(y = 0; y < a; y++){
+                printf("%d %d\n", bfs_x[y], bfs_y[y]);
+            }
+            printf("\n");
+            
+            if(arr[bfs_x[t] + 1][bfs_y[t]] == 0 && bfs_x[t] + 1 <= m){
+                bfs_x[a] = bfs_x[t] + 1;
+                bfs_y[a] = bfs_y[t];
+                arr[bfs_x[t] + 1][bfs_y[t]] = 1;
+                a++;
+            }
+            
+            if(arr[bfs_x[t] - 1][bfs_y[t]] == 0 && bfs_x[t] - 1 >= 1){
+                bfs_x[a] = bfs_x[t] - 1;
+                bfs_y[a] = bfs_y[t];
+                arr[bfs_x[t] + 1][bfs_y[t]] = 1;
+                a++;
+            }
+            
+            if(arr[bfs_x[t]][bfs_y[t] + 1] == 0 && bfs_y[t] + 1 <= n){
+                bfs_x[a] = bfs_x[t];
+                bfs_y[a] = bfs_y[t] + 1;
+                arr[bfs_x[t] + 1][bfs_y[t]] = 1;
+                a++;
+            }
+            
+            if(arr[bfs_x[t]][bfs_y[t] - 1] == 0 && bfs_y[t] - 1 >= 1){
+                bfs_x[a] = bfs_x[t];
+                bfs_y[a] = bfs_y[t] - 1;
+                arr[bfs_x[t] + 1][bfs_y[t]] = 1;
+                a++;
             }
         }
     }
-    //몇 일 거리는지 확인
-    if(a > 0) printf("%d\n", a);
-    else printf("-1\n");
-
+    
+    printf("%d", a);
+    
     return 0;
 }
