@@ -1,97 +1,85 @@
 //
 //  main.c
-//  untitled
+//  토마토
 //
-//  Created by Joonhee Lee on 05/01/2019.
+//  Created by Joonhee Lee on 10/02/2019.
 //  Copyright © 2019 Joonhee Lee. All rights reserved.
 //
 
 #include <stdio.h>
-int x, y, m, n, a, t, b = 0;
-int arr[1002][1002];
-int bfs_x[1000002];
-int bfs_y[1000002];
+
+int map[1002][1002];
+int bfs[1000002][3];
+
+int x, y, i, t, a, b = 0;
 
 int main() {
-    for(x = 0; x <= 1001; x++){
-        for(y = 0; y <= 1002; y++)
-            arr[x][y] = -1;
-    }
     
-    printf("start\n");
+    printf("Hello, World!\n");
     
-    //receiving primary information
-    scanf("%d %d", &m, &n);
+    scanf("%d %d", &x, &y);
     
-    for(x = 1; x <= m; x++){
-        for(y = 1; y <= n; y++){
-            scanf("%d", &arr[x][y]);
-            if(arr[x][y] == -1)
-                a--;
+    for(t = 0; t < y; t++)
+        for(i = 0; i < x; i++){
+            scanf("%d", &map[i][t]);
+            if(map[i][t] == 1){
+                bfs[a][0] = i;
+                bfs[a][1] = t;
+                bfs[a][2] = 0;
+                a++;
+            }
+            if(map[i][t] == -1)
+                b++;
         }
-    }
     
-    //searching for ripen tomato
-    printf("searching for ripen tomato\n");
-    for(x = 1; x <= m; x++){
-        for(y = 1; y <= n; y++){
-            if(arr[x][y] == 1){
-                bfs_x[a] = x;
-                bfs_y[a] = y;
+    if(b == x * y)
+        b = -1;
+    else
+        b = 0;
+    if(b == 0)
+        for(t = 0; t < a; t++){
+            
+            if(bfs[t][2] > b)
+                b++;
+            
+            if(bfs[t][0] + 1 < x && map[bfs[t][0] + 1][bfs[t][1]] == 0){
+                map[bfs[t][0] + 1][bfs[t][1]] = 1;
+                bfs[a][0] = bfs[t][0] + 1;
+                bfs[a][1] = bfs[t][1];
+                bfs[a][2] = bfs[t][2] + 1;
                 a++;
             }
             
-            if(arr[x][y] == 0){
-                if(arr[x+1][y] == -1 && arr[x-1][y] == -1 && arr[x][y+1] == -1 && arr[x][y-1] == -1)
-                    a = -1;
-            }
-            
-            printf("%d ", a);
-        }
-        printf("\n");
-    }
-    
-    printf("bfs start\n");
-    if(a != -1 && a != -m * n){
-        
-        for(int t = 0; t < a; t++){
-            
-            for(y = 0; y < a; y++){
-                printf("%d %d\n", bfs_x[y], bfs_y[y]);
-            }
-            printf("\n");
-            
-            if(arr[bfs_x[t] + 1][bfs_y[t]] == 0 && bfs_x[t] + 1 <= m){
-                bfs_x[a] = bfs_x[t] + 1;
-                bfs_y[a] = bfs_y[t];
-                arr[bfs_x[t] + 1][bfs_y[t]] = 1;
+            if(bfs[t][0] - 1 >= 0 && map[bfs[t][0] - 1][bfs[t][1]] == 0){
+                map[bfs[t][0] - 1][bfs[t][1]] = 1;
+                bfs[a][0] = bfs[t][0] - 1;
+                bfs[a][1] = bfs[t][1];
+                bfs[a][2] = bfs[t][2] + 1;
                 a++;
             }
             
-            if(arr[bfs_x[t] - 1][bfs_y[t]] == 0 && bfs_x[t] - 1 >= 1){
-                bfs_x[a] = bfs_x[t] - 1;
-                bfs_y[a] = bfs_y[t];
-                arr[bfs_x[t] + 1][bfs_y[t]] = 1;
+            if(bfs[t][1] + 1 < y && map[bfs[t][0]][bfs[t][1] + 1] == 0){
+                map[bfs[t][0]][bfs[t][1] + 1] = 1;
+                bfs[a][0] = bfs[t][0];
+                bfs[a][1] = bfs[t][1] + 1;
+                bfs[a][2] = bfs[t][2] + 1;
                 a++;
             }
             
-            if(arr[bfs_x[t]][bfs_y[t] + 1] == 0 && bfs_y[t] + 1 <= n){
-                bfs_x[a] = bfs_x[t];
-                bfs_y[a] = bfs_y[t] + 1;
-                arr[bfs_x[t] + 1][bfs_y[t]] = 1;
-                a++;
-            }
-            
-            if(arr[bfs_x[t]][bfs_y[t] - 1] == 0 && bfs_y[t] - 1 >= 1){
-                bfs_x[a] = bfs_x[t];
-                bfs_y[a] = bfs_y[t] - 1;
-                arr[bfs_x[t] + 1][bfs_y[t]] = 1;
+            if(bfs[t][1] - 1 >= 0 && map[bfs[t][0]][bfs[t][1] - 1] == 0){
+                map[bfs[t][0]][bfs[t][1] - 1] = 1;
+                bfs[a][0] = bfs[t][0];
+                bfs[a][1] = bfs[t][1] - 1;
+                bfs[a][2] = bfs[t][2] + 1;
                 a++;
             }
         }
-    }
     
-    printf("%d", a);
+    for(t = 0; t < y; t++)
+        for(i = 0; i < x; i++)
+            if(map[i][t] == 0)
+                b = -1;
     
+    printf("%d", b);
     return 0;
 }
