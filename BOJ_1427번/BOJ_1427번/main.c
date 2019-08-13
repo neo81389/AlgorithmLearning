@@ -1,15 +1,16 @@
 //
 //  main.c
-//  BOJ_2751번
+//  BOJ_1427번
 //
-//  Created by Joonhee Lee on 07/08/2019.
+//  Created by Joonhee Lee on 13/08/2019.
 //  Copyright © 2019 Joonhee Lee. All rights reserved.
 //
 
 #include <stdio.h>
 
-int a, i, left, right, pv;
-int arr[1000020];
+int a, i, left, right, pv, buff, m;
+int arr[10];
+int d = 0;
 
 int pivot(int l, int r){
     return (l + r) / 2;
@@ -24,10 +25,10 @@ void quick(int p, int l, int r){
     int qright = r;
     
     while(l <= r){
-        if(arr[l] < p) l++;
-        if(arr[r] > p) r--;
+        if(arr[l] > p) l++;
+        if(arr[r] < p) r--;
         
-        if(arr[l] >= p && arr[r] <= p){
+        if(arr[l] <= p && arr[r] >= p){
             int b = arr[l];
             arr[l] = arr[r];
             arr[r] = b;
@@ -46,19 +47,34 @@ void quick(int p, int l, int r){
 }
 
 int main() {
+    scanf("%d", &m);
     
-    scanf("%d", &a);
+    buff = m;
     
-    for(i = 0; i < a; i++){
-        scanf("%d", &arr[i]);
+    while(buff >= 10){
+        buff = buff / 10;
+        a++;
     }
+    a++;
     
+    for(i = a - 1; i >= 0; i--){
+        
+        int t = 1;
+        
+        for(int b = 0; b < i; b++) t = t * 10;
+        
+        int c = m / t;
+    
+        arr[d] = c;
+        m = m - c * t;
+        d++;
+    }
+
     left = 0;
     right = a - 1;
     
     quick(pivot(left, right), left, right);
     
-    for(i = 0; i < a; i++) printf("%d\n", arr[i]);
-    
+    for(i = 0; i < a; i++) printf("%d", arr[i]);
     return 0;
 }
