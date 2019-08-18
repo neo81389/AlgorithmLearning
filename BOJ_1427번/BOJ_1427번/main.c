@@ -8,73 +8,54 @@
 
 #include <stdio.h>
 
-int a, i, left, right, pv, buff, m;
+int a, i, t, b, c, m;
+int state, count = 0;
 int arr[10];
-int d = 0;
 
-int pivot(int l, int r){
-    return (l + r) / 2;
-}
-
-void quick(int p, int l, int r){
-    
-    pv = p;
-    p = arr[p];
-    
-    int qleft = l;
-    int qright = r;
-    
-    while(l <= r){
-        if(arr[l] > p) l++;
-        if(arr[r] < p) r--;
+void bubble(){
+    while(state != 1){
         
-        if(arr[l] <= p && arr[r] >= p){
-            int b = arr[l];
-            arr[l] = arr[r];
-            arr[r] = b;
-            
-            l++;
-            r--;
-            
-            if(pv == l) pv = r;
-            if(pv == r) pv = l;
+        count = 0;
+        
+        for(t = 0; t < i - 1; t++){
+            if(arr[t] > arr[t + 1]){
+                int d = arr[t];
+                arr[t] = arr[t + 1];
+                arr[t + 1] = d;}
+            else count++;
         }
+        if(count == i-1) state = 1;
     }
-    
-    if(pv - qleft > 1) quick(pivot(qleft, pv - 1), qleft, pv - 1);
-    if(qright - pv > 1) quick(pivot(pv + 1, qright), pv + 1, qright);
-    
 }
 
-int main() {
-    scanf("%d", &m);
-    
-    buff = m;
-    
-    while(buff >= 10){
-        buff = buff / 10;
+void toarray(){
+    while(a >= 1){
+        a = a / 10;
+        i++;
+    }
+
+    for(t = i-1; t >= 0; t--){
+        c = 1;
+        for(b = 0; b < t; b++) c = c * 10;
+        
+        int buff = (m / c);
+        m = m - c * buff;
+        arr[a] = buff;
         a++;
     }
-    a++;
-    
-    for(i = a - 1; i >= 0; i--){
-        
-        int t = 1;
-        
-        for(int b = 0; b < i; b++) t = t * 10;
-        
-        int c = m / t;
-    
-        arr[d] = c;
-        m = m - c * t;
-        d++;
-    }
+}
 
-    left = 0;
-    right = a - 1;
+int main(){
     
-    quick(pivot(left, right), left, right);
+    scanf("%d", &a);
+    m = a;
     
-    for(i = 0; i < a; i++) printf("%d", arr[i]);
+    toarray();
+    
+    bubble();
+    
+    for(t = i-1; t >= 0; t--) printf("%d", arr[t]);
+    
     return 0;
+    
 }

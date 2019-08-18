@@ -9,35 +9,40 @@
 #include <stdio.h>
 
 int a, i;
-int arr[10000000];
-int count[100000000][2];
+int l, r = 0;
+int mem[45];
 
-int fibonacci(int n, int i){
+int fibonacci(int n) {
     
-    if(n == 0){
-        count[i][0]++;
-        return 0;
-    }
-    else if(n == 1){
-        count[i][1]++;
-        return 1;
-    }
-    else{
-        return fibonacci(n - 1, i) + fibonacci(n - 2, i);
+    int result = n;
+    
+    if (n == 0) return l++;
+    else if (n == 1) return r++;
+    
+    else {
+        int b, c;
+        if(mem[n - 1] != -1) b = mem[n - 1];
+        
+        if(mem[n - 2] != -1) c = mem[n - 2];
+        mem[result] = fibonacci(n - 1) + fibonacci(n - 2);
+        
+        return fibonacci(mem[result]);
     }
 }
 
 int main() {
 
     scanf("%d", &a);
-    for(i = 0; i < a; i++){
-        scanf("%d", &arr[i]);
-    }
     
-    for(i = 0; i < a; i++){
-        fibonacci(arr[i], i);
-        printf("%d ", count[i][0]);
-        printf("%d\n", count[i][1]);
+    for(i = 0; i < a; i++) {
+        l = 0;
+        r = 0;
+        
+        int t;
+        scanf("%d", &t);
+        fibonacci(t);
+        
+        printf("%d %d\n", l, r);
     }
     
     return 0;
