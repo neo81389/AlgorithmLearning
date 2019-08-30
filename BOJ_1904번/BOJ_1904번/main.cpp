@@ -8,21 +8,23 @@
 #include <stdio.h>
 #include <iostream>
 
-int a, i, t;
-int result = 0;
+int a, i, t, buff;
+int result;
 
-int factorial(int t){
-    int a = 1;
-    for(i = 1; i <= t; i++) a = a * i;
-    return a;
+void cal(int t) {
+    for(int i = 0; i < t; i++){
+        buff = buff - 2;
+    }
+    result = buff;
 }
 
 int main() {
     
     scanf("%d", &a);
     
-    for(t = 0; t <= a/2; t++) {
-        result += (factorial(t + (a - 2 * t)) / factorial(t) / factorial(a - 2 * t));
+    for(t = 0; t <= a/2; t++){
+        buff = a - 1;
+        cal(t);
     }
     
     printf("%d", result);
