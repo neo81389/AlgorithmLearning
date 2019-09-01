@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D366956B2319E7AB00659C45 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D366956A2319E7AB00659C45 /* main.cpp */; };
+		D3F2B14B231BA6D5001AE835 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3F2B14A231BA6D5001AE835 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D36695652319E7AB00659C45 /* CopyFiles */ = {
+		D3F2B145231BA6D5001AE835 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,12 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D36695672319E7AB00659C45 /* PointerLesson_3(Void Pointer) */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "PointerLesson_3(Void Pointer)"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D366956A2319E7AB00659C45 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D3F2B147231BA6D5001AE835 /* PointerLearning_3(이중포인터) */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "PointerLearning_3(이중포인터)"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3F2B14A231BA6D5001AE835 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D36695642319E7AB00659C45 /* Frameworks */ = {
+		D3F2B144231BA6D5001AE835 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,65 +38,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D366955E2319E7AB00659C45 = {
+		D3F2B13E231BA6D5001AE835 = {
 			isa = PBXGroup;
 			children = (
-				D36695692319E7AB00659C45 /* PointerLesson_3(Void Pointer) */,
-				D36695682319E7AB00659C45 /* Products */,
+				D3F2B149231BA6D5001AE835 /* PointerLearning_3(이중포인터) */,
+				D3F2B148231BA6D5001AE835 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D36695682319E7AB00659C45 /* Products */ = {
+		D3F2B148231BA6D5001AE835 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D36695672319E7AB00659C45 /* PointerLesson_3(Void Pointer) */,
+				D3F2B147231BA6D5001AE835 /* PointerLearning_3(이중포인터) */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D36695692319E7AB00659C45 /* PointerLesson_3(Void Pointer) */ = {
+		D3F2B149231BA6D5001AE835 /* PointerLearning_3(이중포인터) */ = {
 			isa = PBXGroup;
 			children = (
-				D366956A2319E7AB00659C45 /* main.cpp */,
+				D3F2B14A231BA6D5001AE835 /* main.cpp */,
 			);
-			path = "PointerLesson_3(Void Pointer)";
+			path = "PointerLearning_3(이중포인터)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D36695662319E7AB00659C45 /* PointerLesson_3(Void Pointer) */ = {
+		D3F2B146231BA6D5001AE835 /* PointerLearning_3(이중포인터) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D366956E2319E7AB00659C45 /* Build configuration list for PBXNativeTarget "PointerLesson_3(Void Pointer)" */;
+			buildConfigurationList = D3F2B14E231BA6D5001AE835 /* Build configuration list for PBXNativeTarget "PointerLearning_3(이중포인터)" */;
 			buildPhases = (
-				D36695632319E7AB00659C45 /* Sources */,
-				D36695642319E7AB00659C45 /* Frameworks */,
-				D36695652319E7AB00659C45 /* CopyFiles */,
+				D3F2B143231BA6D5001AE835 /* Sources */,
+				D3F2B144231BA6D5001AE835 /* Frameworks */,
+				D3F2B145231BA6D5001AE835 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "PointerLesson_3(Void Pointer)";
-			productName = "PointerLesson_3(Void Pointer)";
-			productReference = D36695672319E7AB00659C45 /* PointerLesson_3(Void Pointer) */;
+			name = "PointerLearning_3(이중포인터)";
+			productName = "PointerLearning_3(이중포인터)";
+			productReference = D3F2B147231BA6D5001AE835 /* PointerLearning_3(이중포인터) */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D366955F2319E7AB00659C45 /* Project object */ = {
+		D3F2B13F231BA6D5001AE835 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Joonhee Lee";
 				TargetAttributes = {
-					D36695662319E7AB00659C45 = {
+					D3F2B146231BA6D5001AE835 = {
 						CreatedOnToolsVersion = 11.0;
 					};
 				};
 			};
-			buildConfigurationList = D36695622319E7AB00659C45 /* Build configuration list for PBXProject "PointerLesson_3(Void Pointer)" */;
+			buildConfigurationList = D3F2B142231BA6D5001AE835 /* Build configuration list for PBXProject "PointerLearning_3(이중포인터)" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -104,29 +104,29 @@
 				en,
 				Base,
 			);
-			mainGroup = D366955E2319E7AB00659C45;
-			productRefGroup = D36695682319E7AB00659C45 /* Products */;
+			mainGroup = D3F2B13E231BA6D5001AE835;
+			productRefGroup = D3F2B148231BA6D5001AE835 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D36695662319E7AB00659C45 /* PointerLesson_3(Void Pointer) */,
+				D3F2B146231BA6D5001AE835 /* PointerLearning_3(이중포인터) */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D36695632319E7AB00659C45 /* Sources */ = {
+		D3F2B143231BA6D5001AE835 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D366956B2319E7AB00659C45 /* main.cpp in Sources */,
+				D3F2B14B231BA6D5001AE835 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		D366956C2319E7AB00659C45 /* Debug */ = {
+		D3F2B14C231BA6D5001AE835 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -184,7 +184,7 @@
 			};
 			name = Debug;
 		};
-		D366956D2319E7AB00659C45 /* Release */ = {
+		D3F2B14D231BA6D5001AE835 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -235,7 +235,7 @@
 			};
 			name = Release;
 		};
-		D366956F2319E7AB00659C45 /* Debug */ = {
+		D3F2B14F231BA6D5001AE835 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -245,7 +245,7 @@
 			};
 			name = Debug;
 		};
-		D36695702319E7AB00659C45 /* Release */ = {
+		D3F2B150231BA6D5001AE835 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -258,25 +258,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D36695622319E7AB00659C45 /* Build configuration list for PBXProject "PointerLesson_3(Void Pointer)" */ = {
+		D3F2B142231BA6D5001AE835 /* Build configuration list for PBXProject "PointerLearning_3(이중포인터)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D366956C2319E7AB00659C45 /* Debug */,
-				D366956D2319E7AB00659C45 /* Release */,
+				D3F2B14C231BA6D5001AE835 /* Debug */,
+				D3F2B14D231BA6D5001AE835 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D366956E2319E7AB00659C45 /* Build configuration list for PBXNativeTarget "PointerLesson_3(Void Pointer)" */ = {
+		D3F2B14E231BA6D5001AE835 /* Build configuration list for PBXNativeTarget "PointerLearning_3(이중포인터)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D366956F2319E7AB00659C45 /* Debug */,
-				D36695702319E7AB00659C45 /* Release */,
+				D3F2B14F231BA6D5001AE835 /* Debug */,
+				D3F2B150231BA6D5001AE835 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D366955F2319E7AB00659C45 /* Project object */;
+	rootObject = D3F2B13F231BA6D5001AE835 /* Project object */;
 }
