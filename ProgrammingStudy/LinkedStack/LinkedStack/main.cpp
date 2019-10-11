@@ -45,7 +45,7 @@ void push(LinkedStackType *s, element item){
 
 element pop(LinkedStackType *s){
     
-    if( is_empty(s)){
+    if(is_empty(s)){
         fprintf(stderr, "스택이 비었음\n");
         exit(1);
     }
@@ -71,7 +71,7 @@ int main() {
     printf("%d\n", pop(&s));
     printf("%d\n", pop(&s));
     printf("%d\n", pop(&s));
-    printf("%d\n", is_empty(&s));
+    printf("%d\n", pop(&s));
     
     return 0;
 }
